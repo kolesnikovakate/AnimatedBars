@@ -7,11 +7,35 @@
 //
 
 import UIKit
+import RxSwift
 
-class MainViewController: UIViewController {
-
+final class MainViewController: UIViewController {
+    
+    private let disposeBag = DisposeBag()
+    private let viewModel = MainViewModelImpl()
+    
+    @IBOutlet private var button: UIButton!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        bindButton()
+        bindInput()
+    }
+}
+
+// MARK: - Private
+private extension MainViewController {
+    
+    func bindButton() {
+        button.rx.tap
+            .bind { [unowned self] in
+                self.viewModel.getInfo()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func bindInput() {
+        viewModel.isLoading.drive(activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
 }

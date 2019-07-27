@@ -5,3 +5,6 @@ line_length:
   warning: 160
   ignores_function_declarations: true
   ignores_comments: true
+
+disabled_rules:
+- trailing_whitespace

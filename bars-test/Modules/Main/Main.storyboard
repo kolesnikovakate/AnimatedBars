@@ -16,9 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoO-lg-At9">
+                                <rect key="frame" x="184" y="808" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-Vx-cY6">
+                                <rect key="frame" x="246" y="813" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d7K-Vx-cY6" firstAttribute="leading" secondItem="UoO-lg-At9" secondAttribute="trailing" constant="16" id="9Hj-QV-Bxm"/>
+                            <constraint firstItem="UoO-lg-At9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mja-re-ViL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UoO-lg-At9" secondAttribute="bottom" constant="24" id="UDu-VR-UsD"/>
+                            <constraint firstItem="d7K-Vx-cY6" firstAttribute="centerY" secondItem="UoO-lg-At9" secondAttribute="centerY" id="paA-aZ-Gbb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="d7K-Vx-cY6" id="YMo-TD-ZKg"/>
+                        <outlet property="button" destination="UoO-lg-At9" id="hHb-FB-o3Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
