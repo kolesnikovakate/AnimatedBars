@@ -29,13 +29,16 @@ private extension MainViewController {
     
     func bindButton() {
         button.rx.tap
-            .bind { [unowned self] in
-                self.viewModel.getInfo()
+            .bind {[unowned self] in
+                self.viewModel.toggleConnectState()
             }
             .disposed(by: disposeBag)
     }
     
     func bindInput() {
         viewModel.isLoading.drive(activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+        viewModel.isConnected.drive(onNext: {[unowned self] isConnected in
+            self.button.setTitle(isConnected ? "Disconnect" : "Connect", for: .normal)
+        }).disposed(by: disposeBag)
     }
 }
