@@ -12,6 +12,7 @@ protocol MainViewModel {
     
     var dataSource: Driver<[BarInfo]> { get }
     var isLoading: Driver<Bool> { get }
+    var isConnected: Driver<Bool> { get }
     
     func toggleConnectState()
 }

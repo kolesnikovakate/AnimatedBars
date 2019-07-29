@@ -24,19 +24,37 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="d7K-Vx-cY6">
                                 <rect key="frame" x="246" y="813" width="20" height="20"/>
                             </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PKJ-dB-uML" customClass="BarsStackView" customModule="bars_test" customModuleProvider="target">
+                                <rect key="frame" x="40" y="84" width="334" height="684"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7Y-j0-JME" customClass="BarView" customModule="bars_test" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="684"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYH-fI-0Ab" customClass="BarView" customModule="bars_test" customModuleProvider="target">
+                                        <rect key="frame" x="177" y="0.0" width="157" height="684"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UoO-lg-At9" firstAttribute="top" secondItem="PKJ-dB-uML" secondAttribute="bottom" constant="40" id="7iq-LZ-zcJ"/>
                             <constraint firstItem="d7K-Vx-cY6" firstAttribute="leading" secondItem="UoO-lg-At9" secondAttribute="trailing" constant="16" id="9Hj-QV-Bxm"/>
+                            <constraint firstItem="PKJ-dB-uML" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="CX8-C8-7RV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PKJ-dB-uML" secondAttribute="trailing" constant="40" id="Jnt-lp-zpv"/>
                             <constraint firstItem="UoO-lg-At9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mja-re-ViL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UoO-lg-At9" secondAttribute="bottom" constant="24" id="UDu-VR-UsD"/>
                             <constraint firstItem="d7K-Vx-cY6" firstAttribute="centerY" secondItem="UoO-lg-At9" secondAttribute="centerY" id="paA-aZ-Gbb"/>
+                            <constraint firstItem="PKJ-dB-uML" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="qBJ-8V-7O7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="d7K-Vx-cY6" id="YMo-TD-ZKg"/>
                         <outlet property="button" destination="UoO-lg-At9" id="hHb-FB-o3Z"/>
+                        <outlet property="stackView" destination="PKJ-dB-uML" id="BcH-aQ-orD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

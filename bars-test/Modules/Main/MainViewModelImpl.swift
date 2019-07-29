@@ -11,15 +11,15 @@ import RxSwift
 
 final class MainViewModelImpl {
     
+    private enum Constants {
+        static let timerSecondsInterval: Int = 3
+    }
+    
     private let disposeBag = DisposeBag()
     private let barsInfo = BehaviorRelay<[BarInfo]>(value: [])
     private let isLoadingRelay = BehaviorRelay<Bool>(value: false)
     private let isConnectedRelay = BehaviorRelay<Bool>(value: false)
     private let networkService: NetworkService
-    
-    private enum Constants {
-        static let timerSecondsInterval: Int = 10
-    }
     
     init(networkService: NetworkService = NetworkServiceImpl()) {
         self.networkService = networkService

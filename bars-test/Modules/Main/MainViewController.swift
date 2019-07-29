@@ -12,14 +12,15 @@ import RxSwift
 final class MainViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    private let viewModel = MainViewModelImpl()
+    private let viewModel: MainViewModel = MainViewModelImpl()
     
     @IBOutlet private var button: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var stackView: BarsStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindButton()
+        bindOutput()
         bindInput()
     }
 }
@@ -27,7 +28,7 @@ final class MainViewController: UIViewController {
 // MARK: - Private
 private extension MainViewController {
     
-    func bindButton() {
+    func bindOutput() {
         button.rx.tap
             .bind {[unowned self] in
                 self.viewModel.toggleConnectState()
@@ -40,5 +41,6 @@ private extension MainViewController {
         viewModel.isConnected.drive(onNext: {[unowned self] isConnected in
             self.button.setTitle(isConnected ? "Disconnect" : "Connect", for: .normal)
         }).disposed(by: disposeBag)
+        viewModel.dataSource.drive(stackView.rx.items).disposed(by: disposeBag)
     }
 }
